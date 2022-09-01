@@ -2,8 +2,8 @@ import CartWidget from "./CartWidget";
 
 const NavBar = () => {
 	return (
-		<header class="text-bg-dark sticky-top bg-secondary pt-3">
-			<div class="container-xxl">
+		<header className="text-bg-dark sticky-top bg-secondary pt-3">
+			<div className="container-xxl">
 				<nav className="navbar navbar-expand navbar-dark bg-secondary pb-0">
 					<div className="col-2 d-none d-lg-block">
 						<a href="./" className="navbar-brand fs-4 fw-bold">
@@ -17,12 +17,12 @@ const NavBar = () => {
 									Categoría 1
 								</a>
 							</li>
-							<li class="nav-item mx-2">
+							<li className="nav-item mx-2">
 								<a className="nav-link" href="#">
 									Categoría 2
 								</a>
 							</li>
-							<li class="nav-item mx-2">
+							<li className="nav-item mx-2">
 								<a className="nav-link" href="#">
 									Categoría 3
 								</a>

@@ -4,8 +4,10 @@ import NavBar from "./components/NavBar.js";
 function App() {
 	return (
 		<div className="App">
-			<NavBar />
-			<ItemListContainer greeting="Hola Susana" />
+			{/* <NavBar /> */}
+			<div className="container-xxl py-5">
+				<ItemListContainer />
+			</div>
 		</div>
 	);
 }
