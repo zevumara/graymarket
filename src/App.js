@@ -1,4 +1,5 @@
 import ItemListContainer from "./components/ItemListContainer.js";
+import ItemDetailContainer from "./components/ItemDetailContainer.js";
 import NavBar from "./components/NavBar.js";
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
 		<div className="App">
 			{/* <NavBar /> */}
 			<div className="container-xxl py-5">
-				<ItemListContainer />
+				{/* <ItemListContainer /> */}
+				<ItemDetailContainer />
 			</div>
 		</div>
 	);
