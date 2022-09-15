@@ -1,6 +1,6 @@
 # Proyecto final en React para Coderhouse
 
-Este proyecto es una adaptación en React del [https://github.com/barduck/mercadogris](proyecto final en vanilla javascript).
+Este proyecto es una adaptación en React del [proyecto final en vanilla javascript](https://github.com/barduck/mercadogris).
 
 ## Funcionalidades a aplicar en el proyecto
 
