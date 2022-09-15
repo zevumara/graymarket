@@ -14,7 +14,7 @@ function App() {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		loading ? console.log('Cargando...') : console.log('Cargado.');
+		loading ? console.log("Cargando...") : console.log("Cargado.");
 	}, [loading]);
 
 	return (
@@ -23,7 +23,7 @@ function App() {
 			<NavBar />
 			<CartSidebar />
 			<Routes>
-				<Route path="/" element={<ItemListContainer loader={setLoading} />} />
+				<Route path="graymarket" element={<ItemListContainer loader={setLoading} />} />
 				<Route path="category/:categoryId" element={<ItemListContainer loader={setLoading} />} />
 				<Route path="item/:itemId" element={<ItemDetailContainer loader={setLoading} />} />
 			</Routes>

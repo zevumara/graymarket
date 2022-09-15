@@ -7,11 +7,14 @@ const NavBar = () => {
 			<div className="container-xxl">
 				<div className="row align-items-center">
 					<div className="col-2 d-none d-lg-block">
-						<NavLink to={"/"} className="navbar-brand fs-2 fw-bold"><span style={{ color: "#ccc9d0" }}>Gray</span>market</NavLink>
+						<NavLink to={"graymarket"} className="navbar-brand fs-2 fw-bold">
+							<span style={{ color: "#ccc9d0" }}>Gray</span>market
+						</NavLink>
 					</div>
 					<div className="col-md-12 col-lg-10">
 						<form id="buscador" className="input-group" role="search" action="submit">
-							<input className="form-control"
+							<input
+								className="form-control"
 								type="search"
 								autoComplete="off"
 								placeholder="Search..."
@@ -29,7 +32,13 @@ const NavBar = () => {
 								aria-controls="carrito"
 							>
 								<i className="bi bi-cart-fill"></i>
-								<span id="contador" className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none"> 1 </span>
+								<span
+									id="contador"
+									className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none"
+								>
+									{" "}
+									1{" "}
+								</span>
 							</button>
 						</form>
 					</div>
@@ -39,13 +48,28 @@ const NavBar = () => {
 				<div className="container-fluid justify-content-center">
 					<ul className="navbar-nav fw-light text-center">
 						<li className="nav-item mx-2">
-							<NavLink to={"/category/MLA1055"} className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}>Electronics</NavLink>
+							<NavLink
+								to={"/category/MLA1055"}
+								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
+							>
+								Electronics
+							</NavLink>
 						</li>
 						<li className="nav-item mx-2">
-							<NavLink to={"/category/MLA436380"} className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}>Fornitures</NavLink>
+							<NavLink
+								to={"/category/MLA436380"}
+								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
+							>
+								Fornitures
+							</NavLink>
 						</li>
 						<li className="nav-item mx-2">
-							<NavLink to={"/category/MLA1744"} className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}>Vehicles</NavLink>
+							<NavLink
+								to={"/category/MLA1744"}
+								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
+							>
+								Vehicles
+							</NavLink>
 						</li>
 					</ul>
 				</div>
