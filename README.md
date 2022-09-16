@@ -2,6 +2,8 @@
 
 Este proyecto es una adaptación en React del [proyecto final en vanilla javascript](https://github.com/barduck/mercadogris).
 
+**Versión online en Github Pages:** [https://barduck.github.io/graymarket/](https://barduck.github.io/graymarket/)
+
 ## Funcionalidades a aplicar en el proyecto
 
 - Loader
