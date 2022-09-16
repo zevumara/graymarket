@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/graymarket/static/css/main.a4506616.css",
-    "main.js": "/graymarket/static/js/main.2d9e9b73.js",
+    "main.js": "/graymarket/static/js/main.fd60a2fb.js",
     "static/js/787.b917cd32.chunk.js": "/graymarket/static/js/787.b917cd32.chunk.js",
     "static/media/bootstrap-icons.woff?": "/graymarket/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
     "static/media/bootstrap-icons.woff2?": "/graymarket/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
     "index.html": "/graymarket/index.html",
     "main.a4506616.css.map": "/graymarket/static/css/main.a4506616.css.map",
-    "main.2d9e9b73.js.map": "/graymarket/static/js/main.2d9e9b73.js.map",
+    "main.fd60a2fb.js.map": "/graymarket/static/js/main.fd60a2fb.js.map",
     "787.b917cd32.chunk.js.map": "/graymarket/static/js/787.b917cd32.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4506616.css",
-    "static/js/main.2d9e9b73.js"
+    "static/js/main.fd60a2fb.js"
   ]
 }
