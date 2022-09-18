@@ -1,33 +1,36 @@
 // Dependencies
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 // Components
 import ItemCount from "./ItemCount";
+// Contexts
+import { CartContext } from "../../context/CartContext";
 
-const ItemDetail = ({ id, nombre, imagen, precio, descripcion }) => {
-	const [count, setCount] = useState(0);
+const ItemDetail = ({ id, title, price, image, description }) => {
+	const [quantity, setQuantity] = useState(1);
+	const cartContext = useContext(CartContext);
 
 	return (
 		<div className="card">
 			<img
-				src={"https://http2.mlstatic.com/D_604790-" + imagen + "-V.webp"}
+				src={"https://http2.mlstatic.com/D_604790-" + image + "-V.webp"}
 				className="card-img-top"
-				alt="Smartphone"
+				alt="Product"
 				style={{ width: "60%", margin: "auto" }}
 			/>
 			<div className="card-body">
 				<h5 className="card-title" style={{ minHeight: "52px" }}>
-					{nombre}
+					{title}
 				</h5>
 				<p className="card-text text-secondary" style={{ minHeight: "72px" }}>
-					<small>{descripcion}</small>
+					<small>{description}</small>
 				</p>
-				<ItemCount count={count} setCount={setCount} stock={10} />
+				<ItemCount count={quantity} setCount={setQuantity} stock={10} />
 				<div className="input-group justify-content-center">
-					<span className="input-group-text">$ {precio}</span>
-					<NavLink to={"/cart"} className="btn btn-primary">
+					<span className="input-group-text">$ {price}</span>
+					<a onClick={() => cartContext.addItem({ id, title, price, image, description }, quantity)} className="btn btn-primary">
 						<i className="bi bi-cart-plus me-2"></i>Buy
-					</NavLink>
+					</a>
 				</div>
 			</div>
 		</div>

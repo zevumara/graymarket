@@ -8,6 +8,8 @@ import ItemListContainer from "./components/ItemList/ItemListContainer.js";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer.js";
 import Footer from "./components/Footer/Footer.js";
 import Loader from "./components/Loader/Loader.js";
+// Contexts
+import CartProvider from "./context/CartProvider.js";
 
 function App() {
 	// Loader
@@ -18,17 +20,19 @@ function App() {
 	}, [loading]);
 
 	return (
-		<BrowserRouter>
-			{loading && <Loader />}
-			<NavBar />
-			<CartSidebar />
-			<Routes>
-				<Route path="graymarket" element={<ItemListContainer loader={setLoading} />} />
-				<Route path="category/:categoryId" element={<ItemListContainer loader={setLoading} />} />
-				<Route path="item/:itemId" element={<ItemDetailContainer loader={setLoading} />} />
-			</Routes>
-			<Footer />
-		</BrowserRouter>
+		<CartProvider>
+			<BrowserRouter>
+				{loading && <Loader />}
+				<NavBar />
+				<CartSidebar />
+				<Routes>
+					<Route path="graymarket" element={<ItemListContainer loader={setLoading} />} />
+					<Route path="category/:categoryId" element={<ItemListContainer loader={setLoading} />} />
+					<Route path="item/:itemId" element={<ItemDetailContainer loader={setLoading} />} />
+				</Routes>
+				<Footer />
+			</BrowserRouter>
+		</CartProvider>
 	);
 }
 
