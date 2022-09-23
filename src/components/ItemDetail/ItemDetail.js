@@ -1,6 +1,5 @@
 // Dependencies
 import { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
 // Components
 import ItemCount from "./ItemCount";
 // Contexts

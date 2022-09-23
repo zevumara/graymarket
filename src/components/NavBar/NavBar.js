@@ -1,5 +1,6 @@
 // Dependencies
 import { NavLink } from "react-router-dom";
+import CartWidget from "../Cart/CartWidget";
 
 const NavBar = () => {
 	return (
@@ -32,13 +33,7 @@ const NavBar = () => {
 								aria-controls="carrito"
 							>
 								<i className="bi bi-cart-fill"></i>
-								<span
-									id="contador"
-									className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none"
-								>
-									{" "}
-									1{" "}
-								</span>
+								<CartWidget />
 							</button>
 						</form>
 					</div>

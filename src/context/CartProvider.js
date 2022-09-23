@@ -1,9 +1,10 @@
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 
 const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
-	const [cartCounter, setCartCounter] = useState(0);
+	const [counter, setCounter] = useState(0);
+	const [total, setTotal] = useState(0);
 
 	const isInCart = (item) => {
 		return cart.find((product) => product.id === item.id);
@@ -12,30 +13,34 @@ const CartProvider = ({ children }) => {
 	const addItem = (item, quantity) => {
 		const cartItem = isInCart(item);
 		cartItem ? (cartItem.quantity += quantity) : setCart([...cart, { ...item, quantity }]);
+		setTotal((total) => total + item.price * quantity);
+		setCounter((counter) => counter + quantity);
 	};
 
 	const removeItem = (item) => {
 		const cartItem = isInCart(item);
 		if (cartItem && cartItem.quantity <= 1) {
-			let index = cart.indexOf(cartItem);
-			let newCart = cart;
-			setCart(newCart.splice(index, 1));
+			setCart(cart.filter(product => product.id !== item.id));
 		} else {
 			cartItem.quantity--;
 		}
+		setTotal((total) => total - item.price);
+		counter > 0 && setCounter((counter) => counter - 1);
 	};
 
 	const clear = () => {
+		setTotal(0);
 		setCart([]);
+		counter !== 0 && setCounter(0);
 	};
 
-	// Debug
-
 	useEffect(() => {
-		console.log(cart);
-	}, [cart]);
+		if (counter < 1) {
+			clear();
+		}
+	}, [counter]);
 
-	return <CartContext.Provider value={{ cart, addItem, removeItem, clear }}>{children}</CartContext.Provider>;
+	return <CartContext.Provider value={{ cart, counter, total, addItem, removeItem, clear }}>{children}</CartContext.Provider>;
 };
 
 export default CartProvider;
