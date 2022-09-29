@@ -7,6 +7,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Popper from "@popperjs/core";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
+// Firebase
+import { initializeApp } from "firebase/app";
+const firebaseConfig = {
+	apiKey: "AIzaSyCokBnFKS14xiAHccqDuBooKNjeIMj0CDg",
+	authDomain: "graymarket-477c8.firebaseapp.com",
+	projectId: "graymarket-477c8",
+	storageBucket: "graymarket-477c8.appspot.com",
+	messagingSenderId: "1019306318694",
+	appId: "1:1019306318694:web:cbe5df12b007ab5eb9c6a7",
+};
+const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

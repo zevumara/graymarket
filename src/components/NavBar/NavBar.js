@@ -44,7 +44,7 @@ const NavBar = () => {
 					<ul className="navbar-nav fw-light text-center">
 						<li className="nav-item mx-2">
 							<NavLink
-								to={"/category/MLA1055"}
+								to={"/graymarket"}
 								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
 							>
 								Electronics
@@ -52,7 +52,7 @@ const NavBar = () => {
 						</li>
 						<li className="nav-item mx-2">
 							<NavLink
-								to={"/category/MLA436380"}
+								to={"/category/fornitures"}
 								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
 							>
 								Fornitures
@@ -60,7 +60,7 @@ const NavBar = () => {
 						</li>
 						<li className="nav-item mx-2">
 							<NavLink
-								to={"/category/MLA1744"}
+								to={"/category/vehicles"}
 								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
 							>
 								Vehicles

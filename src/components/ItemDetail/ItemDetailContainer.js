@@ -1,6 +1,7 @@
 // Dependencies
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getDoc, getFirestore, doc } from "firebase/firestore";
 // Components
 import ItemDetail from "./ItemDetail";
 
@@ -8,18 +9,27 @@ const ItemDetailContainer = ({ loader }) => {
 	const { itemId } = useParams();
 	const [item, setItem] = useState([]);
 
-	// Item
-	const getItem = async () => {
+	// Item de Mercado Libre
+	const getItemML = async () => {
 		const response = await fetch(`https://api.mercadolibre.com/items/${itemId}`);
 		const result = await response.json();
 		setItem(result);
 		loader(false);
 	};
 
+	// Item de Firestore
+	const getItemFS = async () => {
+		const query = await doc(getFirestore(), "items", itemId);
+		const result = await getDoc(query);
+		setItem({ id: result.id, ...result.data() });
+		loader(false);
+	};
+
 	// Llama a la función cuando se recibe la variable itemId
 	useEffect(() => {
 		loader(true);
-		getItem();
+		//getItemML();
+		getItemFS();
 	}, [itemId]);
 
 	return (
@@ -30,7 +40,7 @@ const ItemDetailContainer = ({ loader }) => {
 					id={item.id}
 					title={item.title}
 					price={item.price}
-					image={item.thumbnail_id}
+					image={item.image}
 					description={item.title}
 				/>
 			</div>

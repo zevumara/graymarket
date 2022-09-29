@@ -11,12 +11,7 @@ const ItemDetail = ({ id, title, price, image, description }) => {
 
 	return (
 		<div className="card">
-			<img
-				src={"https://http2.mlstatic.com/D_604790-" + image + "-V.webp"}
-				className="card-img-top"
-				alt="Product"
-				style={{ width: "60%", margin: "auto" }}
-			/>
+			<img src={`../graymarket/img/${image}`} className="card-img-top" alt="Product" style={{ width: "40%", margin: "auto" }} />
 			<div className="card-body">
 				<h5 className="card-title" style={{ minHeight: "52px" }}>
 					{title}

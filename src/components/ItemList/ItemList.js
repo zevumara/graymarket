@@ -17,7 +17,14 @@ const ItemList = ({ lista }) => {
 	return (
 		<div id="container" className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 			{lista.map((item) => (
-				<Item key={item.id} id={item.id} nombre={item.title.split(' ').slice(0, 3).join(' ')} precio={item.price} imagen={item.thumbnail_id} descripcion={item.title} />
+				<Item
+					key={item.id}
+					id={item.id}
+					nombre={item.title}
+					precio={item.price}
+					imagen={item.image}
+					descripcion={item.description}
+				/>
 			))}
 		</div>
 	);
