@@ -23,7 +23,7 @@ const ItemDetail = ({ id, title, price, image, description }) => {
 				<div className="input-group justify-content-center">
 					<span className="input-group-text">$ {price}</span>
 					<a onClick={() => cartContext.addItem({ id, title, price, image, description }, quantity)} className="btn btn-primary">
-						<i className="bi bi-cart-plus me-2"></i>Buy
+						<i className="bi bi-cart-plus me-2"></i>Add to cart
 					</a>
 				</div>
 			</div>

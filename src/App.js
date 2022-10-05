@@ -10,14 +10,11 @@ import Footer from "./components/Footer/Footer.js";
 import Loader from "./components/Loader/Loader.js";
 // Contexts
 import CartProvider from "./context/CartProvider.js";
+import Checkout from "./components/Cart/Checkout.js";
 
 function App() {
 	// Loader
 	const [loading, setLoading] = useState(false);
-
-	useEffect(() => {
-		loading ? console.log("Cargando...") : console.log("Cargado.");
-	}, [loading]);
 
 	return (
 		<CartProvider>
@@ -29,6 +26,7 @@ function App() {
 					<Route path="graymarket" element={<ItemListContainer loader={setLoading} />} />
 					<Route path="category/:categoryId" element={<ItemListContainer loader={setLoading} />} />
 					<Route path="item/:itemId" element={<ItemDetailContainer loader={setLoading} />} />
+					<Route path="checkout" element={<Checkout loader={setLoading} />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>

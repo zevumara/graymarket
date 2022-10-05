@@ -41,7 +41,7 @@ const ItemDetailContainer = ({ loader }) => {
 					title={item.title}
 					price={item.price}
 					image={item.image}
-					description={item.title}
+					description={item.description}
 				/>
 			</div>
 		</main>

@@ -20,7 +20,7 @@ const CartProvider = ({ children }) => {
 	const removeItem = (item) => {
 		const cartItem = isInCart(item);
 		if (cartItem && cartItem.quantity <= 1) {
-			setCart(cart.filter(product => product.id !== item.id));
+			setCart(cart.filter((product) => product.id !== item.id));
 		} else {
 			cartItem.quantity--;
 		}

@@ -1,5 +1,6 @@
 // Dependencies
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 // Components
 import CartItem from "./CartItem";
 // Contexts
@@ -20,11 +21,21 @@ const CartItemList = () => {
 					<hr className="my-4" />
 					<div className="d-flex justify-content-between mb-4">
 						<h5 className="text-secondary">Total</h5>
-						<h5> $ {cartContext.total}</h5>
+						<h5> ${cartContext.total}</h5>
 					</div>
-					<button id="comprar" className="btn btn-primary w-100 py-2" onClick={() => cartContext.clear()}>
-						<i className="bi bi-cart-check-fill me-1"></i> Finalizar compra
-					</button>
+					<Link to="/checkout">
+						<button
+							id="comprar"
+							className="btn btn-primary w-100 py-2"
+							data-bs-dismiss="offcanvas"
+							data-bs-target="#carrito"
+							onClick={() => {
+								window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+							}}
+						>
+							<i className="bi bi-cart-check-fill me-1"></i> Checkout
+						</button>
+					</Link>
 				</div>
 			</>
 		);
