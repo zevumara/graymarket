@@ -35,14 +35,7 @@ const ItemDetailContainer = ({ loader }) => {
 	return (
 		<main className="album">
 			<div className="container-xxl pt-4 pb-3">
-				<ItemDetail
-					key={item.id}
-					id={item.id}
-					title={item.title}
-					price={item.price}
-					image={item.image}
-					description={item.description}
-				/>
+				<ItemDetail key={item.id} item={item} />
 			</div>
 		</main>
 	);

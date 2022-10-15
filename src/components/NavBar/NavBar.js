@@ -1,41 +1,25 @@
 // Dependencies
 import { NavLink } from "react-router-dom";
-import CartWidget from "../Cart/CartWidget";
+import { useContext } from "react";
+// Components
+import SearchBar from "../SearchBar/SearchBar";
+// Context
+import { BasicContext } from "../../context/BasicContext";
+
 
 const NavBar = () => {
+	const basicContext = useContext(BasicContext);
 	return (
 		<header className="text-bg-dark sticky-top bg-secondary pt-2">
 			<div className="container-xxl">
 				<div className="row align-items-center">
 					<div className="col-2 d-none d-lg-block">
-						<NavLink to={"graymarket"} className="navbar-brand fs-2 fw-bold">
+						<NavLink to={"/graymarket"} className="navbar-brand fs-2 fw-bold" onClick={basicContext.clearSearch}>
 							<span style={{ color: "#ccc9d0" }}>Gray</span>market
 						</NavLink>
 					</div>
 					<div className="col-md-12 col-lg-10">
-						<form id="buscador" className="input-group" role="search" action="submit">
-							<input
-								className="form-control"
-								type="search"
-								autoComplete="off"
-								placeholder="Search..."
-								aria-label="Search"
-								id="buscador_input"
-							/>
-							<button className="btn btn-secondary" type="submit">
-								<i className="bi bi-search"></i>
-							</button>
-							<button
-								className="btn btn-primary px-5 position-relative"
-								type="button"
-								data-bs-toggle="offcanvas"
-								data-bs-target="#carrito"
-								aria-controls="carrito"
-							>
-								<i className="bi bi-cart-fill"></i>
-								<CartWidget />
-							</button>
-						</form>
+						<SearchBar />
 					</div>
 				</div>
 			</div>
@@ -46,6 +30,7 @@ const NavBar = () => {
 							<NavLink
 								to={"/graymarket"}
 								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
+								onClick={basicContext.clearSearch}
 							>
 								Electronics
 							</NavLink>
@@ -54,6 +39,7 @@ const NavBar = () => {
 							<NavLink
 								to={"/category/fornitures"}
 								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
+								onClick={basicContext.clearSearch}
 							>
 								Fornitures
 							</NavLink>
@@ -62,6 +48,7 @@ const NavBar = () => {
 							<NavLink
 								to={"/category/vehicles"}
 								className={({ isActive }) => (isActive ? "active nav-link bg-white text-dark" : "nav-link")}
+								onClick={basicContext.clearSearch}
 							>
 								Vehicles
 							</NavLink>

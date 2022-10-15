@@ -11,12 +11,12 @@ const ItemCount = ({ count, setCount, stock }) => {
 	};
 
 	return (
-		<div className="input-group mb-3 mx-auto" style={{ maxWidth: "150px" }}>
-			<button id="restar" className="btn btn-primary" type="button" onClick={onRemove}>
+		<div className="input-group mb-3" style={{ maxWidth: "130px" }}>
+			<button id="restar" className="btn btn-secondary" type="button" onClick={onRemove}>
 				<i className="bi bi-dash"></i>
 			</button>
 			<input type="text" className="form-control text-center" value={count} disabled />
-			<button className="btn btn-primary" type="button" onClick={onAdd}>
+			<button className="btn btn-secondary" type="button" onClick={onAdd}>
 				<i className="bi bi-plus"></i>
 			</button>
 		</div>

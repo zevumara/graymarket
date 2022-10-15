@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 // Contexts
 import { CartContext } from "../../context/CartContext";
+import { BasicContext } from "../../context/BasicContext";
 
 const CartItemList = () => {
 	const cartContext = useContext(CartContext);
+	const basicContext = useContext(BasicContext);
 
 	if (cartContext.counter > 0) {
 		return (
@@ -31,6 +33,7 @@ const CartItemList = () => {
 							data-bs-target="#carrito"
 							onClick={() => {
 								window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+								basicContext.clearSearch();
 							}}
 						>
 							<i className="bi bi-cart-check-fill me-1"></i> Checkout

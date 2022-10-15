@@ -1,18 +1,24 @@
-# Proyecto final en React para Coderhouse
+# This is my final project for the course "Frontend developer with React" from Coderhouse
 
-Este proyecto es una adaptación en React del [proyecto final en vanilla javascript](https://github.com/barduck/mercadogris).
+_This project is a React adaptation of [my other final project made with vanilla javascript](https://github.com/barduck/mercadogris)._
 
-**Versión online en Github Pages:** [https://barduck.github.io/graymarket/](https://barduck.github.io/graymarket/)
+## Live demo
 
-## Funcionalidades a aplicar en el proyecto
+![Navigation](https://raw.githubusercontent.com/barduck/graymarket/main/public/navigation.gif)
 
-- Loader
-- Catálogo de productos
-- Buscador
-- Sistema de carrito
-- Sistema de pago (Mercado Pago)
-- Paginado
+**Github Page:** [https://barduck.github.io/graymarket/](https://barduck.github.io/graymarket/)
 
-## Objetivos
+## Main functionalities required to approve
 
-Aplicar todos los conocimientos aprendidos en los cursos para crear una aplicación rápida, segura y estable, con la sufieciente flexibilidad para adataparse a la mayor cantidad de dispositivos posibles.
+-   Product catalog connected to Firebase
+-   Cart system
+-   Checkout that generates an order in Firebase
+
+## Extra functionalities that I wanted to apply on my own
+
+-   Loader
+-   Searcher
+-   Discount with promo code
+-   Acceptable looking design
+
+Also as a personal challenge, I set out to use pure Bootstrap with no additional CSS spritesheet, forcing me to learn the logic of the library.

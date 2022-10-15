@@ -1,80 +1,97 @@
 // Dependencies
 import { useContext, useState, useEffect } from "react";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+// Components
+import Message from "../Message/Message";
 // Contexts
 import { CartContext } from "../../context/CartContext";
+
 const Checkout = ({ loader }) => {
 	const cartContext = useContext(CartContext);
-	const [message, setMessage] = useState("");
-
-	useEffect(() => {
-		cartContext.cart.lenght == 0 && setMessage("OK");
-	}, []);
-
+	const [message, setMessage] = useState({
+		type: "success",
+		content: "",
+	});
+	// Contenido del form
+	const [data, setData] = useState({
+		first_name: "John",
+		last_name: "Doe",
+		address: "Back Street Boys",
+		card_cvv: 777,
+		card_exp: "04/27",
+		card_name: "JOHN DOE",
+		card_number: "0000 0000 0000 0000",
+		country: "Argentina",
+		email: "john@doe.com",
+		first_name: "John",
+		last_name: "Doe",
+		state: "Buenos Aires",
+		zip_code: 2000,
+	});
+	// Inputs controlados
+	const handleChange = (event) => {
+		setData({
+			...data,
+			[event.target.name]: event.target.value,
+		});
+	};
+	// Enviar formulario
 	const sendOrder = (event) => {
 		event.preventDefault();
 		loader(true);
 		createOrder();
 	};
-
-	const handleChange = (event) => {
-		// logica para guardar form data
-		return;
+	// Enviar formulario
+	const applyPromo = (event) => {
+		event.preventDefault();
+		// check input y si existe en el carrito, si es correcto y no existe:
+		const promoItem = {
+			id: 777,
+			title: "Promo code",
+			description: "CODERHOUSE",
+			image: "",
+			price: 5000,
+		};
+		cartContext.addItem(promoItem, 1);
 	};
-
 	// Crear orden en Firestore
 	const createOrder = async () => {
-		const buyer = {
-			first_name: "John",
-			last_name: "Doe",
-			address: "Back Street Boys",
-			card_cvv: 777,
-			card_exp: "04/27",
-			card_name: "JOHN DOE",
-			card_number: "0000 0000 0000 0000",
-			country: "Argentina",
-			email: "john@doe.com",
-			first_name: "John",
-			last_name: "Doe",
-			state: "Buenos Aires",
-			zip_code: 2000,
-		};
-		const order = { buyer, items: cartContext.cart, total: cartContext.total };
+		const order = { data, items: cartContext.cart, total: cartContext.total };
 		const query = collection(getFirestore(), "orders");
 		await addDoc(query, order)
 			.then(({ id }) => {
-				setMessage(id);
+				setMessage({
+					type: "success",
+					content: `Your order was uploaded successfully (order id: ${id}). This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.`,
+				});
 				cartContext.clear();
-				console.log(id);
 			})
 			.catch((error) => {
-				setMessage(error);
+				setMessage({
+					type: "danger",
+					content:
+						"It looks something went wrong, please try again. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.",
+				});
 			});
 		loader(false);
 	};
+	// Mensaje default cuando no hay productos en el carrito
+	useEffect(() => {
+		if (!cartContext.cart.length && message.content == "") {
+			setMessage({
+				type: "warning",
+				content:
+					"It looks there is no  products in your cart. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.",
+			});
+		}
+	}, [cartContext.cart]);
 
-	if (message) {
-		return (
-			<main className="album">
-				<div className="container-xxl pt-4 pb-3">
-					<div className="alert alert-success" role="alert">
-						<h4 className="alert-heading">
-							<i className="bi bi-check-circle-fill"></i> Well done!
-						</h4>
-						<p>
-							Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that
-							you can see how spacing within an alert works with this kind of content.
-						</p>
-						<hr />
-						<p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-					</div>
-				</div>
-			</main>
-		);
-	} else {
-		return (
-			<main className="album">
-				<div className="container-xxl pt-4 pb-3">
+	return (
+		<main className="album">
+			<div className="container-xxl pt-4 pb-3">
+				{!cartContext.cart.length ? (
+					<Message type={message.type} content={message.content} />
+				) : (
 					<div className="row">
 						<div className="col-md-4 order-md-2 mb-4">
 							<h4 className="d-flex justify-content-between align-items-center mb-3">
@@ -83,15 +100,20 @@ const Checkout = ({ loader }) => {
 							</h4>
 							<ul className="list-group mb-3">
 								{cartContext.cart.map((item) => (
-									<li key={item.id} className="list-group-item d-flex justify-content-between lh-condensed">
+									<li
+										key={item.id}
+										className={`list-group-item d-flex justify-content-between lh-condensed ${item.id == 777 && "bg-light"}`}
+									>
 										<div>
-											<h6 className="my-0">
-												<span className="badge bg-primary me-2">{item.quantity}</span>
+											<h6 className={`my-0 ${item.id == 777 && "text-success"}`}>
+												<span className={`badge bg-primary me-2 ${item.id == 777 && "d-none"}`}>{item.quantity}</span>
 												{item.title}
 											</h6>
-											<small className="text-muted">{item.description}</small>
+											<small className={`${item.id == 777 ? "text-success" : "text-muted"}`}>{item.description}</small>
 										</div>
-										<span className="text-muted">${item.price}</span>
+										<span className={`${item.id == 777 ? "text-success" : "text-muted"}`}>
+											{item.id == 777 && "-"} ${item.price}
+										</span>
 									</li>
 								))}
 								<li className="list-group-item d-flex justify-content-between">
@@ -99,6 +121,14 @@ const Checkout = ({ loader }) => {
 									<strong>${cartContext.total}</strong>
 								</li>
 							</ul>
+							<form className="card p-2" onSubmit={applyPromo}>
+								<div className="input-group">
+									<input type="text" className="form-control" placeholder="Promo code" defaultValue={"CODERHOUSE"} />
+									<button type="submit" className="btn btn-secondary">
+										Redeem
+									</button>
+								</div>
+							</form>
 						</div>
 
 						<div className="col-md-8 order-md-1">
@@ -311,10 +341,10 @@ const Checkout = ({ loader }) => {
 							</form>
 						</div>
 					</div>
-				</div>
-			</main>
-		);
-	}
+				)}
+			</div>
+		</main>
+	);
 };
 
 export default Checkout;

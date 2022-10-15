@@ -1,9 +1,12 @@
 // Dependencies
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 // Components
 import Item from "./Item";
+import Message from "../Message/Message";
+import { BasicContext } from "../../context/BasicContext";
 
-const ItemList = ({ lista }) => {
+const ItemList = ({ list }) => {
+	const basicContext = useContext(BasicContext);
 	/*
 	// Probando lógica para entender el funcionamiento de los ciclos
 	useEffect(() => {
@@ -11,22 +14,18 @@ const ItemList = ({ lista }) => {
 	}, []);
 	useEffect(() => {
 		lista.length > 0 && console.log("Carga completa.");
-	}, [lista]);
+	}, [list]);
 	*/
 
 	return (
-		<div id="container" className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-			{lista.map((item) => (
-				<Item
-					key={item.id}
-					id={item.id}
-					nombre={item.title}
-					precio={item.price}
-					imagen={item.image}
-					descripcion={item.description}
-				/>
-			))}
-		</div>
+		<>
+			{list.length < 1 && basicContext.query && <Message type="warning" content="No search results found." />}
+			<div id="container" className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{list.map((item) => (
+					<Item key={item.id} item={item} />
+				))}
+			</div>
+		</>
 	);
 };
 
