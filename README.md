@@ -1,6 +1,6 @@
 # Graymarket
 
-This is my final project for the "Frontend developer with React" career at Coderhouse.
+This is my final project for the "Front-end developer with React" career at Coderhouse.
 
 _This project is a React adaptation of [my other final project made with vanilla JavaScript](https://github.com/zevamaru/mercadogris)._
 
