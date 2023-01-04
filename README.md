@@ -1,20 +1,22 @@
-# This is my final project for the course "Frontend developer with React" from Coderhouse
+# Graymarket
 
-_This project is a React adaptation of [my other final project made with vanilla javascript](https://github.com/barduck/mercadogris)._
+This is my final project for the "Frontend developer with React" career at Coderhouse.
+
+_This project is a React adaptation of [my other final project made with vanilla javascript](https://github.com/zevamaru/mercadogris)._
 
 ## Live demo
 
-![Navigation](https://raw.githubusercontent.com/barduck/graymarket/main/public/navigation.gif)
+![Navigation](https://raw.githubusercontent.com/zevamaru/graymarket/main/public/navigation.gif)
 
-**Github Page:** [https://barduck.github.io/graymarket/](https://barduck.github.io/graymarket/)
+**Github Page:** [https://zevamaru.github.io/graymarket/](https://zevamaru.github.io/graymarket/)
 
-## Main functionalities required to approve
+## Main functionalities required to approve 👇
 
 -   Product catalog connected to Firebase
 -   Cart system
 -   Checkout that generates an order in Firebase
 
-## Extra functionalities that I wanted to apply on my own
+## Extra functionalities that I wanted to apply on my own ☝
 
 -   Loader
 -   Searcher
