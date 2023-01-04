@@ -2,7 +2,7 @@
 
 This is my final project for the "Frontend developer with React" career at Coderhouse.
 
-_This project is a React adaptation of [my other final project made with vanilla javascript](https://github.com/zevamaru/mercadogris)._
+_This project is a React adaptation of [my other final project made with vanilla JavaScript](https://github.com/zevamaru/mercadogris)._
 
 ## Live demo
 ![Navigation](https://raw.githubusercontent.com/zevamaru/graymarket/main/public/navigation.gif)
