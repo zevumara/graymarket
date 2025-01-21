@@ -2,11 +2,11 @@
 
 This is my final project for the "Front-end developer with React" career at Coderhouse.
 
-_This project is a React adaptation of [my other final project made with vanilla JavaScript](https://github.com/zevamaru/mercadogris)._
+_This project is a React adaptation of [my other final project made with vanilla JavaScript](https://github.com/zevumara/mercadogris)._
 
 ## Live demo
-![Navigation](https://raw.githubusercontent.com/zevamaru/graymarket/main/public/navigation.gif)
-**Github Page:** [https://zevamaru.github.io/graymarket/](https://zevamaru.github.io/graymarket/)
+![Navigation](https://raw.githubusercontent.com/zevumara/graymarket/main/public/navigation.gif)
+**Github Page:** [https://zevamaru.github.io/graymarket/](https://zevumara.github.io/graymarket/)
 
 ## Main functionalities required to approve 👇
 -   Catalog of products connected to Firebase
